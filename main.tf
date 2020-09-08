@@ -3,6 +3,7 @@ resource "aws_api_gateway_method" "method" {
   resource_id        = var.resource_id
   http_method        = var.http_method
   authorization      = var.authorization
+  authorizer_id      = var.authorizer_id
   request_parameters = var.method_request_parameters
 
   request_validator_id = var.request_validator_id
