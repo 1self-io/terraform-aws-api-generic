@@ -13,7 +13,7 @@ variable "http_method" {
 }
 
 variable "integration_http_method" {
-  default = null
+  default     = null
   description = "The integration HTTP method (GET, POST, PUT, DELETE, HEAD, OPTIONs, ANY, PATCH) specifying how API Gateway will interact with the back end. Required if type is AWS, AWS_PROXY, HTTP or HTTP_PROXY. Not all methods are compatible with all AWS integrations. e.g. Lambda function can only be invoked via POST."
 }
 
@@ -22,12 +22,12 @@ variable "type" {
 }
 
 variable "uri" {
-  default = null
+  default     = null
   description = "The input's URI. Required if type is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`. For `HTTP` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. region, subdomain and service are used to determine the right endpoint. e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`"
 }
 
 variable "credentials" {
-  default = null
+  default     = null
   description = "The credentials required for the integration."
 }
 
@@ -54,16 +54,21 @@ variable "model" {
 }
 
 variable "integration_request_parameters" {
-  type        = map
-  default     = {}
+  type    = map
+  default = {}
 }
 
 variable "request_templates" {
-  type        = map
-  default     = {}
+  type    = map
+  default = {}
 }
 
 variable "responses" {
-  type        = list
-  default     = []
+  type    = list
+  default = []
+}
+
+variable "authorizer_id" {
+  default     = null
+  description = "The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`"
 }
